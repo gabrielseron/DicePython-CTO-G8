@@ -17,3 +17,22 @@ def roll_dice_set(nb_dice_to_roll):
         dice_value_occurrence_list[dice_value - 1] += 1
 
     return dice_value_occurrence_list
+
+
+print(roll_dice_set(6))
+
+
+def roll_dice_score_standard(dice_value_occurrence_list):
+    dice_score = 0
+    for n in range(len(dice_value_occurrence_list)):
+        for i in range(len(SCORING_DICE_VALUE_LIST)):
+            if dice_value_occurrence_list[n] == SCORING_DICE_VALUE_LIST[i]:
+                dice_score += SCORING_MULTIPLIER_LIST[i]
+
+        return dice_score
+
+
+
+roll_list =  roll_dice_set(6)
+print (roll_list)
+print(roll_dice_score_standard(roll_list))
